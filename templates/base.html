@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payroll Management System</title>
+    <link rel="icon" href="{% static 'img/favicon.png' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/fontello-2f186091/css/fontello.css' %}">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #411aa3;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 15px;
+        }
+        /* Header Styles */
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0;
+            padding: 20px 0;
+            text-align: left;
+        }
+        .logo a:hover {
+            color: #0056b3;
+        }
+        /* Authenticated User Styles */
+        .user-info {
+            text-align: right;
+            padding: 20px 0;
+        }
+        .user-info a {
+            color: #fff;
+        }
+        .user-info .btn-logout {
+            padding: 8px 20px;
+            background-color: #d63030;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .user-info .btn-logout:hover {
+            background-color: #df747f;
+        }
+        /* Welcome Message Styles */
+        .welcome-message {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .welcome-message h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .welcome-message p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        /* Feature Box Styles */
+        .feature-box {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .feature-box .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #007bff;
+        }
+        .feature-box h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .feature-box p {
+            font-size: 16px;
+            color: #666;
+        }
+        /* Alert Styles */
+        .alert {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #e26470;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        /* Footer Styles */
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #df8f8f;
+        }
+        /* Noticeable Text Styles */
+        .noticeable-text {
+            font-weight: bold;
+            color: #007bff; /* You can change the color to something noticeable */
+        }
+        /* Custom Styles */
+        .custom-text-color {
+            color: #f1f1f1; /* Custom color for specific text */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="logo">
+                        <a href="/">Payroll Management</a>
+                    </h1>
+                </div>
+                <div class="col-md-6 user-info">
+                    {% if user.is_authenticated %}
+                    <p>{{ user.username }} <a href="{% url 'logout' %}" class="btn btn-logout"><strong class="custom-text-color">Logout</strong></a></p>
+                    {% endif %}
+                </div>
+            </div>
+            {% if request.path == '/' %}
+            <div class="welcome-message">
+                <h1>Welcome to the Payroll Management System</h1>
+                <p>This system helps you manage your company's payroll efficiently.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <span class="icon">&#128209;</span>
+                        <h2><span class="noticeable-text">Easy to Use</span></h2>
+                        <p>The system is user-friendly and intuitive, making it easy for anyone to use.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <span class="icon">&#128176;</span>
+                        <h2><span class="noticeable-text">Secure</span></h2>
+                        <p>Your data is protected with advanced security measures to ensure confidentiality.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <span class="icon">&#128176;</span>
+                        <h2><span class="noticeable-text">Efficient</span></h2>
+                        <p>Automate payroll processes <br>to save your time and <br>reduce errors.</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    {% for message in messages %}
+                    <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+            <footer>&copy; 2024 Payroll Management System</footer>
+        </div>
+    </div>
+</div>
+</body>
+</html>

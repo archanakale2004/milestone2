@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  
+  <p class="lead">
+    If you already have an account, go ahead and <a href="{% url 'login' %}" style="color: blue;">log in</a>. If you are new, get started
+    by creating a <a href="{% url 'emp_signup' %}" style="color: blue;">EMP account</a> or a <a href="{% url 'hr_signup' %}" style="color: blue;">HR account</a>.
+  </p>
+  <hr>
+{% endblock %}

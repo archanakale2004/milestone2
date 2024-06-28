@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+{{user.username}} write you application :
+
+
+<div class="row box2">
+
+	<div class="col-md-5 box1">
+
+	
+
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success">Submit Application</button>
+      </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,136 @@
+/* Global Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5; /* Soft light gray background */
+  color: #ed8787;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: #1565c0; /* Dark blue for links */
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+}
+
+/* Header */
+h1.logo a {
+  text-decoration: none;
+  color: #1565c0; /* Dark blue for logo */
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+h1.logo a:hover {
+  color: #0d47a1; /* Darker blue on hover */
+}
+
+/* Buttons */
+.btn {
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: #1976d2; /* Light blue button */
+  border-color: #1976d2;
+  color: #fff; /* White text */
+}
+
+.btn-primary:hover {
+  background-color: #0d47a1; /* Darker blue on hover */
+  border-color: #0d47a1;
+}
+
+.btn-light {
+  background-color: #ffffff; /* White button */
+  border-color: #ffffff;
+  color: #ff9191; /* Dark text */
+}
+
+.btn-light:hover {
+  background-color: #f0f0f0; /* Light gray on hover */
+  border-color: #d4d4d4;
+}
+
+.btn-emp {
+  background-color: #43a047; /* Light green for EMP button */
+  color: #fff; /* White text */
+}
+
+.btn-emp:hover {
+  background-color: #2e7d32; /* Darker green on hover */
+  color: #fff;
+}
+
+.btn-hr {
+  background-color: #ff7043; /* Orange for HR button */
+  color: #fff; /* White text */
+}
+
+.btn-hr:hover {
+  background-color: #f08767; /* Darker orange on hover */
+  color: #fff;
+}
+
+.btn-leave-app {
+  background-color: #8e24aa; /* Purple for Leave Application button */
+  color: #fff; /* White text */
+}
+
+.btn-leave-app:hover {
+  background-color: #6a1b9a; /* Darker purple on hover */
+  color: #fff;
+}
+
+/* Alerts */
+.alert {
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/* Card */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* Footer */
+footer {
+  margin-top: 20px;
+  text-align: center;
+  color: #ea6868;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .logo {
+      text-align: center;
+      margin-bottom: 20px;
+  }
+
+  .text-right {
+      text-align: center;
+  }
+
+  .text-right p {
+      margin: 0;
+  }
+}
